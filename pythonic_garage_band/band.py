@@ -39,12 +39,20 @@ class Drummer(Musician):
 
 
 class Band:
-    to_list=[]
+    instances=[]
     def __init__(self,name,members):
         self.name=name
         self.members=members
-        Band.to_list+=[self]
+        Band.instances+=[self]
+    def __str__(self):
+        return f'WE ARE THE {self.name.upper()}'
+    def __repr__(self):
+        return f'WE ARE THE {self.name.upper()}'
     def play_solos(self):
-        return [Guitarist(self.members[0]).play_solo(),Bassist(self.members[1]).play_solo(),Drummer(self.members[2]).play_solo()]
-
+        solos=[]
+        for m in self.members:
+            solos+=[m.play_solo()]
+        return solos
+    def to_list():
+        return Band.instances
         
